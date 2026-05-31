@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriel Ferreira | Desenvolvedor Fullstack</title>
+  <meta name="description" content="Portfólio pessoal de Gabriel Ferreira, Desenvolvedor Fullstack." />
+
+  <!-- Fonts -->
+  
+
+  <!-- Devicon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+</head>
+<body>
+
+  <!-- ░░ LOADER ░░ -->
+   <div id="loader" aria-hidden="true">
+    <div class="loader-corner tl"></div>
+    <div class="loader-corner tr"></div>
+    <div class="loader-corner bl"></div>
+    <div class="loader-corner br"></div>
+    <p class="loader-tag">Bem-vindo ao meu portfólio digital</p>
+    <div class="loader-title" aria-label="Gabriel Ferreira Dev">
+      <span class="line">Gabriel</span>
+      <span class="line">Ferreira</span>
+      <span class="line">Desenvolvedor</span>
+    </div>
+    <p class="loader-subtitle">Compilando ideias, desenhando pixels</p>
+    <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  </div>
+
+  <!-- ░░ HEADER ░░ -->
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#home" class="header__logo"></a>
+      <nav class="header__nav" id="nav">
+        <a href="#home" class="nav__link">Início</a>
+        <a href="#projects" class="nav__link">Projetos</a>
+        <a href="#skills" class="nav__link">Skills</a>
+        <a href="#contact" class="nav__link">Contato</a>
+      </nav>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ░░ MAIN ░░ -->
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero__bg-grid"></div>
+      <div class="hero__container">
+        <div class="hero__badge">Disponível para projetos</div>
+        <h1 class="hero__title">
+          Desenvolvedor<br />
+          <span class="hero__title--accent">Fullstack</span>
+        </h1>
+        <p class="hero__description">
+          Sou apaixonado por criar experiências digitais modernas, eficientes e com foco na experiência do usuário.
+          Transformo ideias em produtos reais, do front ao back.
+        </p>
+        <div class="hero__cta">
+          <a href="#projects" class="btn btn--primary">Ver Projetos</a>
+          <a href="#contact" class="btn btn--outline">Entrar em Contato</a>
+        </div>
+        <div class="hero__scroll-indicator">
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+      <div class="section__container">
+        <div class="section__header">
+          <span class="section__tag">// projetos</span>
+          <h2 class="section__title">Trabalhos Recentes</h2>
+        </div>
+        <div class="projects__grid" id="projectsGrid">
+          <!-- Cards injetados via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills">
+      <div class="section__container">
+        <div class="section__header">
+          <span class="section__tag">// habilidades</span>
+          <h2 class="section__title">Tecnologias</h2>
+        </div>
+        <div class="skills__groups">
+          <div class="skills__group">
+            <h3 class="skills__group-title"><span class="accent">&lt;</span>Frontend<span class="accent">/&gt;</span></h3>
+            <div class="skills__grid">
+              <div class="skill-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+              <div class="skill-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+              <div class="skill-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+            </div>
+          </div>
+          <div class="skills__group">
+            <h3 class="skills__group-title"><span class="accent">&lt;</span>Backend<span class="accent">/&gt;</span></h3>
+            <div class="skills__grid">
+              <div class="skill-item"><i class="devicon-c-plain colored"></i><span>C</span></div>
+              <div class="skill-item"><i class="devicon-python-plain colored"></i><span>Python</span></div>
+              <div class="skill-item"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="section__container">
+        <div class="section__header">
+          <span class="section__tag">// contato</span>
+          <h2 class="section__title">Vamos Conversar?</h2>
+        </div>
+        <div class="contact__wrapper">
+          <div class="contact__info">
+            <p class="contact__subtitle">
+              Tem um projeto em mente ou quer bater um papo? Me manda uma mensagem!
+            </p>
+            <div class="contact__links">
+              <a href="https://wa.me/5500000000000" target="_blank" class="contact__social-link" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.857L.057 23.885a.5.5 0 0 0 .606.63l6.208-1.613A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.898 0-3.667-.524-5.178-1.435l-.37-.222-3.831.995.999-3.735-.242-.386A9.962 9.962 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+                WhatsApp
+              </a>
+              <a href="https://github.com/seugithub" target="_blank" class="contact__social-link" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                GitHub
+              </a>
+              <a href="mailto:seuemail@email.com" class="contact__social-link" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                E-mail
+              </a>
+            </div>
+          </div>
+          <form class="contact__form" id="contactForm">
+            <div class="form__group">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" placeholder="Seu nome completo" required />
+            </div>
+            <div class="form__group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+            </div>
+            <div class="form__group">
+              <label for="subject">Assunto</label>
+              <input type="text" id="subject" name="subject" placeholder="Sobre o que quer falar?" required />
+            </div>
+            <div class="form__group">
+              <label for="message">Mensagem</label>
+              <textarea id="message" name="message" rows="5" placeholder="Escreva sua mensagem..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+              <span>Enviar Mensagem</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+            </button>
+            <div class="form__feedback" id="formFeedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Desenvolvido por <span class="accent">Gabriel Ferreira</span> · <span id="footerYear"></span></p>
+    <a href="admin/index.html" class="footer__admin-link">⚙</a>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+</body>
+</html>
