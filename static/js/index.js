@@ -174,3 +174,89 @@ const PROJECTS = [
     observer.observe(el);
   });
 })();
+
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault(); // Impede a página de recarregar
+  
+  const form = e.target;
+  const formData = new FormData(form);
+  const feedback = document.getElementById('formFeedback');
+  const btn = document.getElementById('submitBtn');
+  
+  // Estado de carregamento
+  btn.disabled = true;
+  btn.querySelector('span').innerText = 'Enviando...';
+  
+  try {
+    const resposta = await fetch('/api/contato', {
+      method: 'POST',
+      body: formData
+    });
+    
+    const dados = await resposta.json();
+    
+    feedback.classList.add('show');
+    if (dados.sucesso) {
+      feedback.classList.remove('error');
+      feedback.classList.add('success');
+      feedback.textContent = dados.mensagem;
+      form.reset(); // Limpa o formulário após o sucesso
+    } else {
+      feedback.classList.remove('success');
+      feedback.classList.add('error');
+      feedback.textContent = dados.erro;
+    }
+  } catch (erro) {
+    feedback.classList.add('show', 'error');
+    feedback.textContent = 'Erro de conexão. Tente novamente mais tarde.';
+  } finally {
+    // Restaura o botão
+    btn.disabled = false;
+    btn.querySelector('span').innerText = 'Enviar Mensagem';
+  }
+});
+
+async function apagarMensagem(botao) {
+    // Puxa o ID da mensagem de forma segura usando o data-id do botão
+    const msgId = botao.getAttribute('data-id');
+
+    // Pede confirmação antes de apagar
+    if (!confirm('Tem certeza que deseja apagar esta mensagem? Esta ação não pode ser desfeita.')) {
+        return;
+    }
+
+    // Acha o card (a caixa inteira da mensagem) que o botão pertence
+    const card = botao.closest('.message-card');
+    botao.innerText = "Apagando...";
+    botao.disabled = true;
+
+    try {
+        // Envia o comando DELETE para o Python
+        const resposta = await fetch(`/api/mensagem/${msgId}`, {
+            method: 'DELETE'
+        });
+
+        const dados = await resposta.json();
+
+        if (dados.sucesso) {
+            // Se o Python apagou no banco, fazemos a animação de sumir na tela
+            card.classList.add('fade-out');
+            setTimeout(() => {
+                card.remove();
+                
+                // Se não sobrar nenhuma mensagem, recarrega a página
+                if (document.querySelectorAll('.message-card').length === 0) {
+                    window.location.reload();
+                }
+            }, 300); 
+        } else {
+            alert(dados.erro || 'Erro ao apagar mensagem.');
+            botao.innerText = "Excluir";
+            botao.disabled = false;
+        }
+    } catch (erro) {
+        alert('Erro de conexão. Tente novamente.');
+        botao.innerText = "Excluir";
+        botao.disabled = false;
+    }
+}
